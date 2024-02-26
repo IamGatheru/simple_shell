@@ -37,3 +37,59 @@ standard streams: Refers to the default input and output channels associated wit
 9) fputs() - write a string from a file
 10) fgets() - Read a string from a file
 11) feof() - Detect end of file marker
+
+
+
+##PROCESSES (PID - Process Identifier)
+##Parent Process Identifier(PPID)
+
+An instance of an executing program that has a unique ID
+
+The pid_t data type is a signed integer type which is capable of representing a process ID.
+/**
+#include <unistd.h>
+getpid(); //Takes no arguments, returns process id.
+*/
+get ppid() //returns the parent process id.
+echo $$ //returns pid from the terminal
+##CommandLine Arguments (argc and argv)
+
+##Executing a program (with execve system call)
+
+##Creating processes (with the fork system call)
+System call fork() is used to create processes.
+It takes no arguments.
+It returns the pid of child in the parent 0 means success, -1 if unsuccessful.
+It accepts no parameters.
+* after a new child process is created, both processes will execute the next instruction following the fork() system call.
+
+When the child exits, it returns back to the parent.
+
+if parent has already exited before child returns, * the child gets stranded in what is called the orphan.
+// Parent id of child process changes during execution to 1
+//Child process is removed from process table after execution.
+
+
+### Orphan process
+This is a running whose parent terminated/exited.
+
+## Init process
+The parent of all processes, executed by the kernel during the booting of the system.
+It has a pid of 1.
+
+## Process Table
+This is a data structure in the RAM of a computer that holds information about the processes currently being handled by the Os.
+
+## Process Entry
+This is created when the process is created by fork() system call.
+
+##Suspending processes (with wait system call)
+Helps prevent rise/creation of zombie states for child processes which normally occurs when child processes terminate before the parent process has terminated.
+
+#Getline function
+
+
+
+##File Information (with the stat system call)
+
+##Environment (printenv, etc)
